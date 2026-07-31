@@ -1,0 +1,191 @@
+/* =========================================================
+   DanyCars — Usługi (services mini-cards) section
+   Used only on danycars-price-uslugi.html
+   ========================================================= */
+
+.services-overview-section {
+  background: #fff;
+}
+
+.svc-intro {
+  color: #666;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-top: 10px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  position: relative;
+}
+
+/* ---------- Connector arrow between cards in the same row (desktop only) ---------- */
+.service-card {
+  position: relative;
+}
+
+.service-card:not(:nth-child(3n))::after {
+  content: '';
+  position: absolute;
+  top: 56px;
+  right: -32px;
+  width: 32px;
+  height: 0;
+  border-top: 2px dashed #d8d8dc;
+  z-index: 2;
+}
+
+.service-card:not(:nth-child(3n))::before {
+  content: '';
+  position: absolute;
+  top: 51px;
+  right: -36px;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 6px solid #d8d8dc;
+  z-index: 2;
+}
+
+/* ---------- Card shell ---------- */
+.service-card-inner {
+  background: #fff;
+  border: 1px solid #ececef;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.12);
+  padding: 0 28px 28px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 320px;
+
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.service-card {
+  height: 100%;
+}
+
+/* ---------- Animated top progress line ---------- */
+.service-line {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #f0f0f2;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-line::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #fc983c;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.55s ease;
+}
+
+/* ---------- Staggered reveal sequence ---------- */
+.services-grid.is-visible .service-card:nth-child(1) .service-line::after { transition-delay: 0s; }
+.services-grid.is-visible .service-card:nth-child(2) .service-line::after { transition-delay: 0.35s; }
+.services-grid.is-visible .service-card:nth-child(3) .service-line::after { transition-delay: 0.7s; }
+.services-grid.is-visible .service-card:nth-child(4) .service-line::after { transition-delay: 1.05s; }
+.services-grid.is-visible .service-card:nth-child(5) .service-line::after { transition-delay: 1.4s; }
+.services-grid.is-visible .service-card:nth-child(6) .service-line::after { transition-delay: 1.75s; }
+
+.services-grid.is-visible .service-card:nth-child(1) .service-card-inner { transition-delay: 0.4s; }
+.services-grid.is-visible .service-card:nth-child(2) .service-card-inner { transition-delay: 0.75s; }
+.services-grid.is-visible .service-card:nth-child(3) .service-card-inner { transition-delay: 1.1s; }
+.services-grid.is-visible .service-card:nth-child(4) .service-card-inner { transition-delay: 1.45s; }
+.services-grid.is-visible .service-card:nth-child(5) .service-card-inner { transition-delay: 1.8s; }
+.services-grid.is-visible .service-card:nth-child(6) .service-card-inner { transition-delay: 2.15s; }
+
+.services-grid.is-visible .service-line::after {
+  transform: scaleX(1);
+}
+
+.services-grid.is-visible .service-card-inner {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Card content ---------- */
+.service-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.service-number {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1.5px solid #f3d9bd;
+  color: #fc983c;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-icon {
+  color: #212529;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.service-card-inner h3 {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #212529;
+  margin-bottom: 12px;
+}
+
+.service-card-inner p {
+  color: #666;
+  font-size: 14.5px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 991.98px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .service-card:not(:nth-child(3n))::after,
+  .service-card:not(:nth-child(3n))::before {
+    display: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .service-card-inner {
+    padding: 0 22px 24px;
+  }
+}

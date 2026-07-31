@@ -1,0 +1,323 @@
+/* =========================================================
+   DanyCars — Pakiety (flip-card packages section)
+   Used only where the .packages-section markup is present
+   ========================================================= */
+
+.packages-section {
+  background: #f9f9fb;
+}
+
+.pkg-intro {
+  color: #666;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-top: 10px;
+}
+
+/* ---------- Grid ---------- */
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* ---------- Card shell / flip mechanics ---------- */
+.package-card {
+  perspective: 1800px;
+  min-height: 620px;
+}
+
+.package-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 620px;
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+  border-radius: 12px;
+  box-shadow: 0 15px 45px -18px rgba(0, 0, 0, 0.25);
+}
+
+.package-card.is-flipped .package-card-inner {
+  transform: rotateY(180deg);
+}
+
+.package-front,
+.package-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.package-back {
+  transform: rotateY(180deg);
+}
+
+/* ---------- FRONT face ---------- */
+.package-front {
+  background: #fff;
+}
+
+.package-photo {
+  position: relative;
+  height: 36%;
+  min-height: 170px;
+  background-size: cover;
+  background-position: center;
+  background-color: #e9e9ec; /* placeholder tone until real photo is added */
+  flex-shrink: 0;
+}
+
+.package-icon {
+  position: absolute;
+  left: 24px;
+  bottom: -28px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #fc983c;
+  box-shadow: 0 10px 25px -8px rgba(0, 0, 0, 0.35);
+}
+
+.package-front-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 36px 26px 22px;
+}
+
+.package-front-body h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 14px;
+}
+
+.package-features {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.package-features li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 8px;
+  color: #666;
+  font-size: 14.5px;
+  line-height: 1.45;
+}
+
+.package-features li::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  color: #fc983c;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.package-front-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.package-price {
+  font-size: 14px;
+  color: #888;
+}
+
+.package-price strong {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fc983c;
+  margin-left: 4px;
+}
+
+.package-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fc983c;
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 11px 22px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.package-btn:hover,
+.package-btn:focus {
+  background: #e8862a;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ---------- BACK face ---------- */
+.package-back {
+  background-size: cover;
+  background-position: center;
+  background-color: #1a1a1a; /* placeholder tone until real photo is added */
+}
+
+.package-back::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.86) 0%, rgba(10, 10, 10, 0.93) 100%);
+}
+
+.package-back-top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20px 22px 0;
+}
+
+.package-back-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 4px;
+  transition: color 0.2s ease;
+}
+
+.package-back-btn:hover,
+.package-back-btn:focus {
+  color: #fc983c;
+}
+
+.package-back-body {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 24px 0;
+  overflow-y: auto;
+}
+
+.package-back-body h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.package-back-body > p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.package-back-body .package-features {
+  margin-bottom: 16px;
+}
+
+.package-back-body .package-features li {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.package-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 14px;
+  margin-bottom: 16px;
+  border-top: 1px solid rgba(252, 152, 60, 0.35);
+}
+
+.package-tags span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.package-back-footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px 22px;
+  margin-top: auto;
+}
+
+.package-back-footer .package-price {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 991.98px) {
+  .package-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+  .package-card,
+  .package-card-inner {
+    min-height: 660px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .package-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .package-card,
+  .package-card-inner {
+    min-height: 600px;
+  }
+  .package-front-body {
+    padding: 36px 22px 18px;
+  }
+  .package-back-body {
+    padding: 16px 20px 0;
+  }
+  .package-back-footer {
+    padding: 14px 20px 20px;
+  }
+}

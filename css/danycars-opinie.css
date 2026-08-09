@@ -1,0 +1,41 @@
+/* ===== Стили страницы Opinie (danycars-opinie.html) ===== */
+/* Подключён только на этой странице. Основные стили отзывов берутся из style.css.
+   ВАЖНО: подключать этот файл в <head> ПОСЛЕ css/style.css. */
+
+/* --- Шапка сразу чёрная при открытии (десктоп) --- */
+#ftco-navbar.ftco-navbar-light,
+#ftco-navbar.ftco-navbar-light.scrolled,
+#ftco-navbar.ftco-navbar-light.awake,
+#ftco-navbar.ftco-navbar-light.sleep {
+  background: #000000 !important;
+  top: 0 !important;
+}
+
+/* --- Мобильный: перебиваем жёсткое правило прозрачности из style.css --- */
+@media (max-width: 991.98px) {
+  html body #ftco-navbar.ftco-navbar-light,
+  html body #ftco-navbar.ftco-navbar-light:not(.scrolled),
+  html body #ftco-navbar.ftco-navbar-light.scrolled,
+  html body #ftco-navbar.ftco-navbar-light.awake,
+  html body #ftco-navbar.ftco-navbar-light.sleep {
+    background: #000000 !important;
+    background-color: #000000 !important;
+    background-image: none !important;
+    top: 0 !important;
+  }
+}
+
+/* --- Отступ от шапки до секции отзывов --- */
+/* Селектор .ftco-section.testimony-section (2 класса), чтобы перебить правило
+   .ftco-section.testimony-section{padding:2em 0} из style.css на мобильном. */
+.ftco-section.testimony-section {
+  padding-top: 8em;
+  padding-bottom: 7em;
+}
+
+@media (max-width: 991.98px) {
+  .ftco-section.testimony-section {
+    padding-top: 5em;
+    padding-bottom: 5em;
+  }
+}

@@ -1,0 +1,215 @@
+/* ===== Общие стили внутренних страниц (все, кроме главной index.html) ===== */
+/* Файл подключён только на внутренних страницах, поэтому главную не затрагивает. */
+
+/* --- Шапка сразу чёрная при открытии (десктоп) --- */
+#ftco-navbar.ftco-navbar-light,
+#ftco-navbar.ftco-navbar-light.scrolled,
+#ftco-navbar.ftco-navbar-light.awake,
+#ftco-navbar.ftco-navbar-light.sleep {
+  background: #000000 !important;
+  top: 0 !important;
+}
+
+/* --- Мобильный: перебиваем жёсткое правило прозрачности из style.css --- */
+/* В style.css есть html body #ftco-navbar.ftco-navbar-light:not(.scrolled){background:transparent}
+   — оно и делало шапку прозрачной наверху. Перебиваем тем же селектором на чёрный. */
+@media (max-width: 991.98px) {
+  html body #ftco-navbar.ftco-navbar-light,
+  html body #ftco-navbar.ftco-navbar-light:not(.scrolled),
+  html body #ftco-navbar.ftco-navbar-light.scrolled,
+  html body #ftco-navbar.ftco-navbar-light.awake,
+  html body #ftco-navbar.ftco-navbar-light.sleep {
+    background: #000000 !important;
+    background-color: #000000 !important;
+    background-image: none !important;
+    top: 0 !important;
+  }
+}
+
+/* --- Небольшой отступ от шапки до контента (hero-секция удалена) --- */
+.ftco-section.about-us-section,
+.ftco-section.services-overview-section,
+.ftco-section.faq-section,
+.ftco-section.contact-section,
+.ftco-section.privacy-section {
+  padding-top: 8em;
+}
+
+/* На мобильном — отступ от шапки до контента */
+@media (max-width: 991.98px) {
+  .ftco-section.about-us-section,
+  .ftco-section.services-overview-section,
+  .ftco-section.faq-section,
+  .ftco-section.contact-section,
+  .ftco-section.privacy-section {
+    padding-top: 5em;
+  }
+}
+
+
+/* ===== Секция "Dlaczego my" на странице O nas (danycars-o-nas.html) ===== */
+.why-choose { position: relative; }
+.why-choose .container { position: relative; }
+.why-choose .wc-intro { position: relative; margin-bottom: 3.2em; }
+.why-choose .subheading {
+  display: block; color: #fc983c; font-size: 14px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px;
+}
+.why-choose .wc-title {
+  font-size: 44px; line-height: 1.15; font-weight: 700; color: #1f2733; margin: 0 0 18px;
+}
+.why-choose .wc-lead { color: #6b7280; font-size: 17px; line-height: 1.7; max-width: 720px; margin: 0; }
+
+/* декоративная точечная сетка справа сверху */
+.why-choose .wc-dots {
+  position: absolute; top: 0; right: 15px; width: 120px; height: 88px;
+  background-image: radial-gradient(#dfe3e8 2px, transparent 2px);
+  background-size: 16px 16px; pointer-events: none;
+}
+
+.why-choose .wc-grid { margin-top: .5em; }
+.why-choose .wc-item { padding: 20px 26px 24px; }
+.why-choose .wc-icon { width: 54px; height: 54px; margin-bottom: 16px; color: #fc983c; }
+.why-choose .wc-icon svg { width: 100%; height: 100%; display: block; }
+.why-choose .wc-item h3 { font-size: 18px; font-weight: 700; color: #1f2733; line-height: 1.3; margin: 0 0 10px; }
+.why-choose .wc-item p { color: #6b7280; font-size: 15px; line-height: 1.65; margin: 0; }
+
+/* вертикальные разделители между колонками (десктоп) — с отступом сверху/снизу */
+@media (min-width: 992px) {
+  .why-choose .wc-grid .wc-item { position: relative; }
+  .why-choose .wc-grid .wc-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    bottom: 12px;
+    width: 1px;
+    background: #e9ecef;
+  }
+  .why-choose .wc-grid .wc-item:nth-child(4n+1)::before { display: none; }
+}
+
+/* адаптив: планшет */
+@media (max-width: 991.98px) {
+  .why-choose .wc-title { font-size: 34px; }
+  .why-choose .wc-dots { display: none; }
+  .why-choose .wc-item { padding: 18px 16px 22px; }
+}
+
+/* адаптив: телефон — иконка слева, текст справа */
+@media (max-width: 767.98px) {
+  .why-choose .wc-title { font-size: 27px; }
+  .why-choose .wc-lead { font-size: 16px; }
+  .why-choose .wc-intro { margin-bottom: 2em; }
+
+  .why-choose .wc-item {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    column-gap: 16px;
+    align-items: start;
+    text-align: left;
+    padding: 16px 6px;
+  }
+  .why-choose .wc-item .wc-icon {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 48px;
+    height: 48px;
+    margin: 2px 0 0;
+  }
+  .why-choose .wc-item h3 {
+    grid-column: 2;
+    grid-row: 1;
+    margin-bottom: 6px;
+  }
+  .why-choose .wc-item p {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+
+/* ===== Секция "Dlaczego my" на странице O nas (danycars-o-nas.html) ===== */
+.why-choose { position: relative; }
+.why-choose .container { position: relative; }
+.why-choose .wc-intro { position: relative; margin-bottom: 3.2em; }
+.why-choose .subheading {
+  display: block; color: #fc983c; font-size: 14px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px;
+}
+.why-choose .wc-title {
+  font-size: 44px; line-height: 1.15; font-weight: 700; color: #1f2733; margin: 0 0 18px;
+}
+.why-choose .wc-lead { color: #6b7280; font-size: 17px; line-height: 1.7; max-width: 720px; margin: 0; }
+
+/* декоративная точечная сетка справа сверху */
+.why-choose .wc-dots {
+  position: absolute; top: 0; right: 15px; width: 120px; height: 88px;
+  background-image: radial-gradient(#dfe3e8 2px, transparent 2px);
+  background-size: 16px 16px; pointer-events: none;
+}
+
+.why-choose .wc-grid { margin-top: .5em; }
+.why-choose .wc-item { padding: 20px 26px 24px; }
+.why-choose .wc-icon { width: 54px; height: 54px; margin-bottom: 16px; color: #fc983c; }
+.why-choose .wc-icon svg { width: 100%; height: 100%; display: block; }
+.why-choose .wc-item h3 { font-size: 18px; font-weight: 700; color: #1f2733; line-height: 1.3; margin: 0 0 10px; }
+.why-choose .wc-item p { color: #6b7280; font-size: 15px; line-height: 1.65; margin: 0; }
+
+/* вертикальные разделители между колонками (десктоп) — с отступом сверху/снизу */
+@media (min-width: 992px) {
+  .why-choose .wc-grid .wc-item { position: relative; }
+  .why-choose .wc-grid .wc-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    bottom: 12px;
+    width: 1px;
+    background: #e9ecef;
+  }
+  .why-choose .wc-grid .wc-item:nth-child(4n+1)::before { display: none; }
+}
+
+/* адаптив: планшет */
+@media (max-width: 991.98px) {
+  .why-choose .wc-title { font-size: 34px; }
+  .why-choose .wc-dots { display: none; }
+  .why-choose .wc-item { padding: 18px 16px 22px; }
+}
+
+/* адаптив: телефон — иконка слева, текст справа + линии между блоками */
+@media (max-width: 767.98px) {
+  .why-choose .wc-title { font-size: 27px; }
+  .why-choose .wc-lead { font-size: 16px; }
+  .why-choose .wc-intro { margin-bottom: 2em; }
+
+  .why-choose .wc-item {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    column-gap: 16px;
+    align-items: start;
+    text-align: left;
+    padding: 16px 6px;
+  }
+  .why-choose .wc-item .wc-icon {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 48px;
+    height: 48px;
+    margin: 2px 0 0;
+  }
+  .why-choose .wc-item h3 {
+    grid-column: 2;
+    grid-row: 1;
+    margin-bottom: 6px;
+  }
+  .why-choose .wc-item p {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  /* тонкая серая линия между блоками (только телефон) */
+  .why-choose .wc-grid .wc-item + .wc-item {
+    border-top: 1px solid #eef0f2;
+  }
+}

@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/subpages.css">
 </head>
 <body>
 
@@ -42,7 +43,8 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="index.html" class="nav-link">Strona główna</a></li>
                 <li class="nav-item"><a href="danycars-o-nas.html" class="nav-link">O nas</a></li>
-                <li class="nav-item"><a href="danycars-price-uslugi.html" class="nav-link">Usługi</a></li>
+                <li class="nav-item"><a href="danycars-price-uslugi.html" class="nav-link">Cennik</a></li>
+                <li class="nav-item"><a href="danycars-opinie.html" class="nav-link">Opinie</a></li>
                 <li class="nav-item"><a href="danycars-faq.html" class="nav-link">FAQ</a></li>
                 <li class="nav-item active"><a href="danycars-contact.html" class="nav-link">Kontakt</a></li>
             </ul>
@@ -50,18 +52,6 @@
     </div>
 </nav>
 <!-- END nav -->
-
-<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-            <div class="col-md-9 ftco-animate pb-5">
-                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Strona główna <i class="ion-ios-arrow-forward"></i></a></span> <span>Kontakt <i class="ion-ios-arrow-forward"></i></span></p>
-                <h1 class="mb-3 bread">Kontakt</h1>
-            </div>
-        </div>
-    </div>
-</section>
 
 <section class="ftco-section contact-section">
     <div class="container">
@@ -98,6 +88,15 @@
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Twój email">
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" name="pakiet" aria-label="Wybierz pakiet">
+                            <option value="" selected>Wybierz pakiet</option>
+                            <option value="basic">BASIC</option>
+                            <option value="plus">PLUS</option>
+                            <option value="premium">PREMIUM</option>
+                            <option value="expert-day">EXPERT DAY</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Link do ogłoszenia">
@@ -147,7 +146,7 @@
                     <h2 class="ftco-heading-2">Informacje</h2>
                     <ul class="list-unstyled">
                         <li><a href="danycars-o-nas.html" class="py-2 d-block">O nas</a></li>
-                        <li><a href="danycars-price-uslugi.html" class="py-2 d-block">Usługi</a></li>
+                        <li><a href="danycars-price-uslugi.html" class="py-2 d-block">Cennik</a></li>
                         <li><a href="danycars-polityka-prywatnosci.html" class="py-2 d-block">Polityka prywatności i cookies</a></li>
                     </ul>
                 </div>

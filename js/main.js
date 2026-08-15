@@ -1,7 +1,7 @@
- AOS.init({
- 	duration: 800,
- 	easing: 'slide'
- });
+AOS.init({
+	duration: 800,
+	easing: 'slide'
+});
 
 (function($) {
 
@@ -11,32 +11,32 @@
 		Android: function() {
 			return navigator.userAgent.match(/Android/i);
 		},
-			BlackBerry: function() {
+		BlackBerry: function() {
 			return navigator.userAgent.match(/BlackBerry/i);
 		},
-			iOS: function() {
+		iOS: function() {
 			return navigator.userAgent.match(/iPhone|iPad|iPod/i);
 		},
-			Opera: function() {
+		Opera: function() {
 			return navigator.userAgent.match(/Opera Mini/i);
 		},
-			Windows: function() {
+		Windows: function() {
 			return navigator.userAgent.match(/IEMobile/i);
 		},
-			any: function() {
+		any: function() {
 			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
 		}
 	};
 
 
 	$(window).stellar({
-    responsive: true,
-    parallaxBackgrounds: true,
-    parallaxElements: true,
-    horizontalScrolling: false,
-    hideDistantElements: false,
-    scrollProperty: 'scroll'
-  });
+		responsive: true,
+		parallaxBackgrounds: true,
+		parallaxElements: true,
+		horizontalScrolling: false,
+		hideDistantElements: false,
+		scrollProperty: 'scroll'
+	});
 
 
 	var fullHeight = function() {
@@ -51,7 +51,7 @@
 
 	// loader
 	var loader = function() {
-		setTimeout(function() { 
+		setTimeout(function() {
 			if($('#ftco-loader').length > 0) {
 				$('#ftco-loader').removeClass('show');
 			}
@@ -60,12 +60,18 @@
 	loader();
 
 	// Scrollax
-   $.Scrollax();
+	$.Scrollax();
 
 	var carousel = function() {
+		// На странице отзывов (danycars-opinie) карусель БЕЗ зацикливания — стоп на краях.
+		// На остальных страницах поведение прежнее (center + loop).
+		var isOpinie = /danycars-opinie/i.test(location.pathname) ||
+			$('#ftco-nav .nav-item.active a[href*="danycars-opinie"]').length > 0;
+
 		$('.carousel-testimony').owlCarousel({
-			center: true,
-			loop: true,
+			center: isOpinie ? false : true,
+			loop: isOpinie ? false : true,
+			rewind: false,
 			items:1,
 			margin: 30,
 			stagePadding: 0,
@@ -84,7 +90,64 @@
 			}
 		});
 
+		// Свои боковые стрелки только на странице отзывов (их стили — в danycars-opinie.css)
+		if (isOpinie) { reviewNav(); }
+
 	};
+
+	// Боковые стрелки-переключатели для отзывов.
+	// Нажатая стрелка становится оранжевой, вторая — белой. На загрузке обе белые.
+	var reviewNav = function() {
+		var $car = $('.carousel-testimony');
+		if (!$car.length) { return; }
+
+		if (!$car.siblings('.review-nav').length) {
+			var prevBtn = '<button type="button" class="review-nav__btn review-nav__prev" aria-label="Poprzednia opinia"><svg viewBox="0 0 44 16" aria-hidden="true"><path d="M41 8 H4 M13 2 L4 8 L13 14"/></svg></button>';
+			var nextBtn = '<button type="button" class="review-nav__btn review-nav__next" aria-label="Następna opinia"><svg viewBox="0 0 44 16" aria-hidden="true"><path d="M3 8 H40 M31 2 L40 8 L31 14"/></svg></button>';
+			$car.after('<div class="review-nav">' + prevBtn + nextBtn + '</div>');
+		}
+
+		var $nav = $car.siblings('.review-nav');
+		var $prev = $nav.find('.review-nav__prev');
+		var $next = $nav.find('.review-nav__next');
+
+		// Позиция карусели (без зацикливания клонов нет)
+		function curIndex() {
+			var $all = $car.find('.owl-item');
+			var $active = $car.find('.owl-item.active').first();
+			var i = $all.index($active);
+			return i < 0 ? 0 : i;
+		}
+		function total() { return $car.find('.owl-item').length; }
+		function visibleCount() { return $car.find('.owl-item.active').length || 1; }
+		function atStart() { return curIndex() <= 0; }
+		function atEnd() { return (curIndex() + visibleCount()) >= total(); }
+
+		// Оранжевой делаем только ту стрелку, которой листают.
+		// В самом начале (и на загрузке) — обе белые.
+		function setActive(dir) {
+			$prev.toggleClass('is-active', dir === 'prev');
+			$next.toggleClass('is-active', dir === 'next');
+		}
+		setActive(null);
+
+		$next.on('click', function () {
+			if (atEnd()) { return; }          // упёрлись вперёд — стоим, состояние не меняем
+			setActive('next');
+			$car.trigger('next.owl.carousel');
+		});
+		$prev.on('click', function () {
+			if (atStart()) { return; }        // уже в начале — ничего не делаем (обе белые)
+			setActive('prev');
+			$car.trigger('prev.owl.carousel');
+		});
+
+		// После переключения: если вернулись в самое начало — обе стрелки снова белые
+		$car.on('translated.owl.carousel', function () {
+			if (atStart()) { setActive(null); }
+		});
+	};
+
 	carousel();
 
 	$('nav .dropdown').hover(function(){
@@ -97,43 +160,43 @@
 		$this.find('.dropdown-menu').addClass('show');
 	}, function(){
 		var $this = $(this);
-			// timer;
+		// timer;
 		// timer = setTimeout(function(){
-			$this.removeClass('show');
-			$this.find('> a').attr('aria-expanded', false);
-			// $this.find('.dropdown-menu').removeClass('animated-fast fadeInUp show');
-			$this.find('.dropdown-menu').removeClass('show');
+		$this.removeClass('show');
+		$this.find('> a').attr('aria-expanded', false);
+		// $this.find('.dropdown-menu').removeClass('animated-fast fadeInUp show');
+		$this.find('.dropdown-menu').removeClass('show');
 		// }, 100);
 	});
 
 
 	$('#dropdown04').on('show.bs.dropdown', function () {
-	  console.log('show');
+		console.log('show');
 	});
 
 	// scroll
 	var scrollWindow = function() {
 		$(window).scroll(function(){
 			var $w = $(this),
-					st = $w.scrollTop(),
-					navbar = $('.ftco_navbar'),
-					sd = $('.js-scroll-wrap');
+				st = $w.scrollTop(),
+				navbar = $('.ftco_navbar'),
+				sd = $('.js-scroll-wrap');
 
 			if (st > 150) {
 				if ( !navbar.hasClass('scrolled') ) {
-					navbar.addClass('scrolled');	
+					navbar.addClass('scrolled');
 				}
-			} 
+			}
 			if (st < 150) {
 				if ( navbar.hasClass('scrolled') ) {
 					navbar.removeClass('scrolled sleep');
 				}
-			} 
+			}
 			if ( st > 350 ) {
 				if ( !navbar.hasClass('awake') ) {
-					navbar.addClass('awake');	
+					navbar.addClass('awake');
 				}
-				
+
 				if(sd.length > 0) {
 					sd.addClass('sleep');
 				}
@@ -155,25 +218,25 @@
 		Android: function() {
 			return navigator.userAgent.match(/Android/i);
 		},
-			BlackBerry: function() {
+		BlackBerry: function() {
 			return navigator.userAgent.match(/BlackBerry/i);
 		},
-			iOS: function() {
+		iOS: function() {
 			return navigator.userAgent.match(/iPhone|iPad|iPod/i);
 		},
-			Opera: function() {
+		Opera: function() {
 			return navigator.userAgent.match(/Opera Mini/i);
 		},
-			Windows: function() {
+		Windows: function() {
 			return navigator.userAgent.match(/IEMobile/i);
 		},
-			any: function() {
+		any: function() {
 			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
 		}
 	};
 
 	var counter = function() {
-		
+
 		$('#section-counter, .hero-wrap, .ftco-counter').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
@@ -182,15 +245,15 @@
 				$('.number').each(function(){
 					var $this = $(this),
 						num = $this.data('number');
-						console.log(num);
+					console.log(num);
 					$this.animateNumber(
-					  {
-					    number: num,
-					    numberStep: comma_separator_number_step
-					  }, 7000
+						{
+							number: num,
+							numberStep: comma_separator_number_step
+						}, 7000
 					);
 				});
-				
+
 			}
 
 		} , { offset: '95%' } );
@@ -204,7 +267,7 @@
 		$('.ftco-animate').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
-				
+
 				i++;
 
 				$(this.element).addClass('item-animate');
@@ -226,9 +289,9 @@
 							el.removeClass('item-animate');
 						},  k * 50, 'easeInOutExpo' );
 					});
-					
+
 				}, 100);
-				
+
 			}
 
 		} , { offset: '95%' } );
@@ -239,23 +302,23 @@
 	// navigation
 	var OnePageNav = function() {
 		$(".smoothscroll[href^='#'], #ftco-nav ul li a[href^='#']").on('click', function(e) {
-		 	e.preventDefault();
+			e.preventDefault();
 
-		 	var hash = this.hash,
-		 			navToggler = $('.navbar-toggler');
-		 	$('html, body').animate({
-		    scrollTop: $(hash).offset().top
-		  }, 700, 'easeInOutExpo', function(){
-		    window.location.hash = hash;
-		  });
+			var hash = this.hash,
+				navToggler = $('.navbar-toggler');
+			$('html, body').animate({
+				scrollTop: $(hash).offset().top
+			}, 700, 'easeInOutExpo', function(){
+				window.location.hash = hash;
+			});
 
 
-		  if ( navToggler.is(':visible') ) {
-		  	navToggler.click();
-		  }
+			if ( navToggler.is(':visible') ) {
+				navToggler.click();
+			}
 		});
 		$('body').on('activate.bs.scrollspy', function () {
-		  console.log('nice');
+			console.log('nice');
 		})
 	};
 	OnePageNav();
@@ -263,43 +326,42 @@
 
 	// magnific popup
 	$('.image-popup').magnificPopup({
-    type: 'image',
-    closeOnContentClick: true,
-    closeBtnInside: false,
-    fixedContentPos: true,
-    mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
-     gallery: {
-      enabled: true,
-      navigateByImgClick: true,
-      preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-    },
-    image: {
-      verticalFit: true
-    },
-    zoom: {
-      enabled: true,
-      duration: 300 // don't foget to change the duration also in CSS
-    }
-  });
+		type: 'image',
+		closeOnContentClick: true,
+		closeBtnInside: false,
+		fixedContentPos: true,
+		mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
+		gallery: {
+			enabled: true,
+			navigateByImgClick: true,
+			preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+		},
+		image: {
+			verticalFit: true
+		},
+		zoom: {
+			enabled: true,
+			duration: 300 // don't foget to change the duration also in CSS
+		}
+	});
 
-  $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
-    disableOn: 700,
-    type: 'iframe',
-    mainClass: 'mfp-fade',
-    removalDelay: 160,
-    preloader: false,
+	$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+		disableOn: 700,
+		type: 'iframe',
+		mainClass: 'mfp-fade',
+		removalDelay: 160,
+		preloader: false,
 
-    fixedContentPos: false
-  });
+		fixedContentPos: false
+	});
 
 
 	$('#book_pick_date,#book_off_date').datepicker({
-	  'format': 'm/d/yyyy',
-	  'autoclose': true
+		'format': 'm/d/yyyy',
+		'autoclose': true
 	});
 	$('#time_pick').timepicker();
 
 
 
 })(jQuery);
-

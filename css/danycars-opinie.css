@@ -36,6 +36,330 @@
 @media (max-width: 991.98px) {
   .ftco-section.testimony-section {
     padding-top: 5em;
-    padding-bottom: 5em;
+    padding-bottom: 3em;
   }
+}
+
+/* Телефон: меньше пустоты между стрелками и футером */
+@media (max-width: 767.98px) {
+  .ftco-section.testimony-section {
+    padding-bottom: 2em;
+  }
+}
+/* ============================================================
+   Отзывы — ТЕКСТОВЫЕ карточки (финальный вариант).
+   • ровные блоки (одинаковая высота через flex);
+   • центральная карточка подсвечена + облачко «Zobacz więcej»;
+   • при наведении любая карточка подсвечивается и показывает облачко;
+   • стрелки-переключатели по бокам (моб. — под каруселью);
+   • адаптив.
+   Файл подключается ПОСЛЕ style.css.
+   ============================================================ */
+
+/* Воздух сверху под облачко + меньше пустоты под каруселью */
+.testimony-section .owl-carousel .owl-stage-outer {
+  padding-top: 2.8em;
+  padding-bottom: 0.6em;
+}
+
+/* Меньше пустоты между заголовком «Zadowoleni Klienci» и карточками */
+.testimony-section .row.mb-5 {
+  margin-bottom: 1rem !important;
+}
+
+/* --- Ровные блоки: owl-item тянутся на одну высоту --- */
+.testimony-section .carousel-testimony .owl-stage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.testimony-section .carousel-testimony .owl-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+.testimony-section .carousel-testimony .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+/* Карточка = кликабельная ссылка на отзыв Google. По умолчанию белая. */
+.testimony-section .review-card {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  padding: 30px 30px 28px;
+  background: #ffffff;
+  border: 1.5px solid #ededed;
+  border-radius: 18px;
+  text-align: left;
+  color: #333333;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-box-shadow: 0 14px 32px -24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 14px 32px -24px rgba(0, 0, 0, 0.2);
+  -webkit-transition: border-color .28s ease, background-color .28s ease, box-shadow .28s ease, -webkit-transform .28s ease;
+  transition: border-color .28s ease, background-color .28s ease, box-shadow .28s ease, -webkit-transform .28s ease;
+  transition: border-color .28s ease, background-color .28s ease, box-shadow .28s ease, transform .28s ease;
+}
+
+/* Изначально ВСЕ карточки белые. Подсветка ТОЛЬКО при наведении. */
+.testimony-section .review-card:hover,
+.testimony-section .review-card:focus {
+  background: #fdf6ee;
+  border-color: #f6a94a;
+  color: #333333;
+  text-decoration: none;
+  -webkit-box-shadow: 0 20px 44px -22px rgba(249, 109, 0, 0.30);
+  box-shadow: 0 20px 44px -22px rgba(249, 109, 0, 0.30);
+  -webkit-transform: translateY(-4px);
+  transform: translateY(-4px);
+}
+
+/* Имя автора + оранжевая кавычка */
+.testimony-section .review-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #2b2b2b;
+  margin-bottom: 12px;
+}
+.testimony-section .review-quote {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 30px;
+  line-height: 0.7;
+  color: #f6a800;
+  margin-top: -1px;
+}
+
+/* Звёзды + дата — всегда в одну строку */
+.testimony-section .review-meta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.testimony-section .review-stars {
+  color: #f6a800;
+  font-size: 15px;
+  letter-spacing: 2px;
+  line-height: 1;
+  white-space: nowrap;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+.testimony-section .review-date {
+  color: #9a9a9a;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* Текст отзыва */
+.testimony-section .review-text {
+  color: #4a4a4a;
+  font-size: 14px;
+  line-height: 1.65;
+}
+.testimony-section .review-text p {
+  margin-bottom: 12px;
+}
+.testimony-section .review-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* «Облачко» Zobacz więcej — в правом верхнем углу карточки.
+   Скрыто по умолчанию, появляется ТОЛЬКО при наведении. */
+.testimony-section .google-badge {
+  position: absolute;
+  top: -18px;
+  right: 16px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: #ffffff;
+  border: 1.5px solid #f6a94a;
+  border-radius: 11px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  color: #f96d00;
+  white-space: nowrap;
+  z-index: 6;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(6px);
+  transform: translateY(6px);
+  -webkit-box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.3);
+  -webkit-transition: opacity .25s ease, visibility .25s ease, -webkit-transform .25s ease;
+  transition: opacity .25s ease, visibility .25s ease, -webkit-transform .25s ease;
+  transition: opacity .25s ease, visibility .25s ease, transform .25s ease;
+}
+.testimony-section .google-badge::after {
+  content: "";
+  position: absolute;
+  right: 26px;
+  bottom: -6px;
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border-right: 1.5px solid #f6a94a;
+  border-bottom: 1.5px solid #f6a94a;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.testimony-section .review-card:hover .google-badge,
+.testimony-section .review-card:focus .google-badge {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+.testimony-section .google-badge .g-ico,
+.testimony-section .google-badge .ext-ico {
+  display: block;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+.testimony-section .google-badge .g-ico { width: 17px; height: 17px; }
+.testimony-section .google-badge .ext-ico { width: 13px; height: 13px; }
+
+/* ===== Стрелки-переключатели по бокам ===== */
+.testimony-section .owl-dots { display: none !important; }
+
+/* Контейнер-родитель для абсолютного позиционирования стрелок */
+.testimony-section .col-md-12 { position: relative; }
+
+.testimony-section .review-nav__btn {
+  position: absolute;
+  top: 50%;
+  margin-top: -26px;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border-radius: 14px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  z-index: 8;
+  -webkit-transition: background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease, -webkit-transform .2s ease;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease, -webkit-transform .2s ease;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+.testimony-section .review-nav__prev { left: -12px; }
+.testimony-section .review-nav__next { right: -12px; }
+
+/* По умолчанию ОБЕ стрелки белые (с оранжевой стрелкой) */
+.testimony-section .review-nav__btn {
+  background: #ffffff;
+  border: 1.5px solid #f3d3b3;
+  color: #F96D00;
+  -webkit-box-shadow: 0 10px 24px -16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 24px -16px rgba(0, 0, 0, 0.3);
+}
+.testimony-section .review-nav__btn svg {
+  display: block;
+  width: 26px;
+  height: 16px;
+}
+.testimony-section .review-nav__btn svg path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Стрелка, которой листают (.is-active) — заливается оранжевым, стрелка белеет,
+   мягкое свечение. Форма и положение НЕ меняются. */
+.testimony-section .review-nav__btn.is-active {
+  background: #F96D00;
+  border-color: #F96D00;
+  color: #ffffff;
+  -webkit-box-shadow: 0 0 0 4px rgba(249, 109, 0, 0.18), 0 8px 22px -8px rgba(249, 109, 0, 0.55);
+  box-shadow: 0 0 0 4px rgba(249, 109, 0, 0.18), 0 8px 22px -8px rgba(249, 109, 0, 0.55);
+}
+/* Наведение подсвечиваем ТОЛЬКО на устройствах с курсором (не на тач-экранах —
+   иначе на мобильном стрелка «залипала» бы оранжевой уже при загрузке). */
+@media (hover: hover) {
+  .testimony-section .review-nav__btn:hover {
+    background: #F96D00;
+    border-color: #F96D00;
+    color: #ffffff;
+    -webkit-box-shadow: 0 0 0 4px rgba(249, 109, 0, 0.18), 0 8px 22px -8px rgba(249, 109, 0, 0.55);
+    box-shadow: 0 0 0 4px rgba(249, 109, 0, 0.18), 0 8px 22px -8px rgba(249, 109, 0, 0.55);
+  }
+}
+
+/* ===== Адаптив ===== */
+@media (max-width: 991.98px) {
+  .testimony-section .review-card { padding: 28px 26px 26px; }
+  .testimony-section .review-nav__btn { width: 48px; height: 48px; margin-top: -24px; }
+  .testimony-section .review-nav__prev { left: -14px; }
+  .testimony-section .review-nav__next { right: -14px; }
+}
+
+/* Мобильный: стрелки уходят ПОД карусель (чтобы не перекрывать текст) */
+@media (max-width: 767.98px) {
+  .testimony-section .owl-carousel .owl-stage-outer { padding-top: 2.4em; }
+  .testimony-section .review-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 22px;
+    margin-top: 18px;
+  }
+  .testimony-section .review-nav__btn {
+    position: static;
+    top: auto;
+    margin-top: 0;
+    left: auto;
+    right: auto;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .testimony-section .review-card { padding: 22px 20px 20px; border-radius: 16px; }
+  .testimony-section .review-name { font-size: 16px; }
+  .testimony-section .review-text { font-size: 14.5px; }
+  .testimony-section .google-badge { font-size: 13px; padding: 8px 13px; }
 }

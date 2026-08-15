@@ -1,0 +1,145 @@
+/* ============================================================
+   DanyCars — правки ТОЛЬКО для главной страницы (index.html)
+   и ТОЛЬКО для мобильной версии.
+   Подключать в <head> ПОСЛЕ css/style.css.
+
+   1) Hero (первый экран) на телефоне — компактнее, текст выше.
+   2) Бургер-меню открывается на ВЕСЬ экран чёрным, пункты по центру;
+      закрытие возвращает на главный экран.
+   ============================================================ */
+
+/* =========================================================
+   1. HERO на телефоне — меньше по высоте, текст выше
+   ========================================================= */
+@media (max-width: 991.98px) {
+  /* Hero становится компактным: высота по контенту, но не выше min-height.
+     Отступ сверху уводит текст из-под шапки, текст идёт в верхней части. */
+  /* Hero занимает ровно один экран телефона: картинка подстраивается
+     под высоту устройства, следующая секция начинается только после неё. */
+  .hero-wrap {
+    height: 100vh !important;
+    height: 100dvh !important;
+    padding-top: 110px;
+    background-position: center bottom;
+    overflow: hidden;
+  }
+  .hero-wrap .overlay {
+    height: 100% !important;
+  }
+
+  /* Ряд с текстом делаем обычным блоком, чтобы позиционировался предсказуемо */
+  .hero-wrap .slider-text {
+    height: auto !important;
+    display: block !important;
+  }
+  .hero-wrap .slider-text .col-lg-6 {
+    display: block !important;
+    -webkit-box-flex: 0 !important;
+    -ms-flex: 0 0 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  /* Пустые колонки-распорки (нужны только для десктопа) прячем на телефоне */
+  .hero-wrap .slider-text > .col-lg-2,
+  .hero-wrap .slider-text > .col-lg-4 {
+    display: none !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hero-wrap {
+    padding-top: 100px;
+  }
+  .slider-text h1 {
+    font-size: 38px;
+  }
+  .slider-text p {
+    font-size: 16px !important;
+  }
+}
+
+/* =========================================================
+   2. БУРГЕР-МЕНЮ на весь экран (только моб.)
+   ========================================================= */
+@media (max-width: 991.98px) {
+
+  /* Логотип и кнопка-бургер держим ПОВЕРХ чёрного оверлея,
+     чтобы меню можно было закрыть тем же бургером. */
+  #ftco-navbar .navbar-brand,
+  #ftco-navbar .navbar-toggler {
+    position: relative;
+    z-index: 9999;
+  }
+
+  /* Выпадающее меню превращаем в полноэкранный чёрный экран */
+  #ftco-navbar #ftco-nav.show,
+  #ftco-navbar #ftco-nav.collapsing {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    margin: 0;
+    padding: 0;
+    background: #000000;
+    z-index: 9990;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-transition: none !important;
+    transition: none !important;
+    overflow-y: auto;
+  }
+
+  /* Пункты меню — колонкой строго по центру экрана */
+  #ftco-navbar #ftco-nav.show .navbar-nav,
+  #ftco-navbar #ftco-nav.collapsing .navbar-nav {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0;
+  }
+  #ftco-navbar #ftco-nav.show .nav-item,
+  #ftco-navbar #ftco-nav.collapsing .nav-item {
+    margin: 7px 0;             /* меньше отступ между пунктами */
+    width: auto;
+  }
+  #ftco-navbar #ftco-nav.show .nav-link,
+  #ftco-navbar #ftco-nav.collapsing .nav-link {
+    color: #ffffff !important;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 24px;           /* чуть меньше шрифт */
+    font-weight: 300;          /* тонкий, аккуратный — как заголовок на hero */
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    padding: 6px 24px;
+    opacity: 1;
+  }
+  /* Активный пункт — оранжевый (как на сайте), тоже не жирный */
+  #ftco-navbar #ftco-nav.show .nav-item.active .nav-link,
+  #ftco-navbar #ftco-nav.collapsing .nav-item.active .nav-link {
+    color: #F96D00 !important;
+    font-weight: 400;
+  }
+
+  /* Пока меню открыто — не скроллим фон (в браузерах с поддержкой :has) */
+  body:has(#ftco-navbar #ftco-nav.show) {
+    overflow: hidden;
+  }
+}

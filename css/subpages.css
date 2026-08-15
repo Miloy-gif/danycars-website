@@ -27,6 +27,7 @@
 }
 
 /* --- Небольшой отступ от шапки до контента (hero-секция удалена) --- */
+.ftco-section.about-me-section,
 .ftco-section.about-us-section,
 .ftco-section.services-overview-section,
 .ftco-section.faq-section,
@@ -37,6 +38,7 @@
 
 /* На мобильном — отступ от шапки до контента */
 @media (max-width: 991.98px) {
+  .ftco-section.about-me-section,
   .ftco-section.about-us-section,
   .ftco-section.services-overview-section,
   .ftco-section.faq-section,
@@ -212,4 +214,230 @@
   .why-choose .wc-grid .wc-item + .wc-item {
     border-top: 1px solid #eef0f2;
   }
+}
+
+
+/* ============================================================
+   Секция "O mnie" на странице O nas (danycars-o-nas.html)
+   Идёт ПЕРЕД секцией "Dlaczego my". Цвета/типографика — в стиле сайта.
+   ============================================================ */
+.about-me-section { padding-bottom: 3em; }
+.about-me-section .row { position: relative; }
+
+.ftco-section.about-me-section {
+  padding-top: 5.5em;
+}
+.about-me-section .container { width: 100%; }
+
+/* Левая колонка (текст) */
+.about-me-section .am-text-col { padding-right: 3.5em; }
+
+.about-me-section .am-subheading {
+  display: block;
+  color: #F96D00;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.about-me-section .am-title {
+  font-size: 36px;
+  line-height: 1.15;
+  font-weight: 700;
+  color: #1f2733;
+  margin: 0 0 12px;
+}
+.about-me-section .am-subtitle {
+  font-size: 17px;
+  line-height: 1.4;
+  font-weight: 500;
+  color: #1f2733;
+  margin: 0 0 14px;
+}
+.about-me-section .am-subtitle .am-accent { color: #F96D00; }
+
+.about-me-section .am-divider {
+  display: block;
+  width: 48px;
+  height: 3px;
+  border-radius: 2px;
+  background: #F96D00;
+  margin: 0 0 16px;
+}
+
+.about-me-section .am-body p {
+  color: #5b626d;
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+.about-me-section .am-body p:last-child { margin-bottom: 0; }
+.about-me-section .am-body strong { color: #1f2733; font-weight: 700; }
+.about-me-section .am-brand { color: #F96D00; font-weight: 700; }
+
+/* Блок статистики */
+.about-me-section .am-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 22px 0 22px;
+}
+.about-me-section .am-stat { position: relative; padding-left: 14px; min-width: 0; }
+.about-me-section .am-stat + .am-stat::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: #e9ecef;
+}
+.about-me-section .am-stat-icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  color: #F96D00;
+  margin-bottom: 10px;
+}
+.about-me-section .am-stat-icon svg { width: 100%; height: 100%; display: block; }
+/* Фиксированная высота под число — чтобы подписи ниже стояли на одном уровне
+   независимо от того, каким кеглем (обычным или уменьшенным --wide) выведено число */
+.about-me-section .am-stat-num {
+  display: flex;
+  align-items: flex-end;
+  height: 26px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1f2733;
+  line-height: 1.1;
+  margin-bottom: 6px;
+  white-space: nowrap;
+}
+/* Более длинное значение ("Cała Polska") — уменьшенный кегль, чтобы уместиться в одну строку */
+.about-me-section .am-stat-num.am-stat-num--wide {
+  font-size: 16px;
+  letter-spacing: -0.01em;
+}
+.about-me-section .am-stat-label {
+  display: block;
+  color: #8a919c;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Цитата с подписью */
+.about-me-section .am-quote {
+  position: relative;
+  background: #f6f7f8;
+  border-radius: 14px;
+  padding: 18px 22px 16px 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.about-me-section .am-quote-mark {
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 40px;
+  line-height: 1;
+  color: #F96D00;
+}
+.about-me-section .am-quote p {
+  margin: 0;
+  color: #3d444e;
+  font-size: 14.5px;
+  line-height: 1.5;
+  flex: 1 1 auto;
+}
+.about-me-section .am-sign {
+  font-family: "Segoe Script", "Brush Script MT", "Snell Roundhand", cursive;
+  font-size: 28px;
+  color: #F96D00;
+  line-height: 1;
+  white-space: nowrap;
+}
+/* Дубликат цитаты для мобильной версии (см. HTML): скрыт, пока не включён в @media 767.98 */
+.about-me-section .am-quote--mobile { display: none; }
+
+/* Правая колонка (фото) */
+.about-me-section .am-photo-col { display: flex; }
+.about-me-section .am-photo {
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 24px 50px -28px rgba(0, 0, 0, 0.35);
+}
+.about-me-section .am-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: min(560px, 62dvh);
+  object-fit: cover;
+}
+
+/* ===== Только десктоп (≥992px): чуть плотнее текст и отступы, чтобы секция ближе помещалась в экран без скролла ===== */
+@media (min-width: 992px) {
+  .ftco-section.about-me-section { padding-top: 5.5em; }
+  .about-me-section { padding-bottom: 2em; }
+  .about-me-section .am-title { font-size: 30px; margin-bottom: 10px; }
+  .about-me-section .am-subtitle { font-size: 15px; margin-bottom: 12px; }
+  .about-me-section .am-divider { margin-bottom: 12px; }
+  .about-me-section .am-body p { font-size: 13.5px; line-height: 1.5; margin-bottom: 10px; }
+  .about-me-section .am-stats { margin: 16px 0 16px; }
+  .about-me-section .am-quote { padding: 14px 20px 13px 48px; }
+  .about-me-section .am-quote p { font-size: 13.5px; }
+  .about-me-section .am-quote-mark { font-size: 34px; top: 8px; left: 18px; }
+  .about-me-section .am-sign { font-size: 24px; }
+  .about-me-section .am-photo img { min-height: min(500px, 56dvh); }
+  .ftco-section.about-us-section { padding-top: 2.5em; }
+  .why-choose .wc-title { font-size: 34px; }
+}
+
+/* ===== Адаптив (планшет/телефон) ===== */
+@media (max-width: 991.98px) {
+  .ftco-section.about-me-section { padding-top: 4em; }
+  .about-me-section .am-text-col { padding-right: 15px; margin-bottom: 2.2em; }
+  .about-me-section .am-title { font-size: 30px; }
+  .about-me-section .am-stats { gap: 18px 16px; }
+  .about-me-section .am-stat-num { font-size: 20px; height: 24px; }
+  .about-me-section .am-stat-num.am-stat-num--wide { font-size: 17px; }
+  .about-me-section .am-photo img { min-height: min(420px, 50dvh); }
+}
+
+@media (max-width: 767.98px) {
+  .ftco-section.about-me-section { padding-top: 3em; }
+  .about-me-section { padding-bottom: 1.2em; }
+  .ftco-section.about-us-section { padding-top: 2em; }
+  .about-me-section .am-title { font-size: 25px; }
+  .about-me-section .am-subtitle { font-size: 16px; }
+  /* Статистика — в 2 колонки на телефоне */
+  .about-me-section .am-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 16px;
+  }
+  .about-me-section .am-stat { padding-left: 0; }
+  .about-me-section .am-stat + .am-stat::before { display: none; }
+  .about-me-section .am-stat-num { font-size: 19px; height: 23px; }
+  .about-me-section .am-stat-num.am-stat-num--wide { font-size: 16px; }
+  .about-me-section .am-quote {
+    padding: 20px 22px 18px 52px;
+    justify-content: flex-start;
+  }
+  .about-me-section .am-sign { font-size: 26px; }
+  .about-me-section .am-photo img { min-height: min(340px, 40dvh); }
+
+  /* На телефоне карточка с цитатой переезжает под фото (после am-photo-col) */
+  .about-me-section .am-photo-col { flex-direction: column; }
+  .about-me-section .am-quote--desktop { display: none; }
+  .about-me-section .am-quote--mobile { display: flex; margin-top: 22px; }
+}
+
+/* Доп. отступ между текстом и иконками статистики — только планшет и десктоп (≥768px), мобильная версия не тронута */
+@media (min-width: 768px) {
+  .about-me-section .am-stats { margin-top: 72px; }
 }

@@ -1,0 +1,87 @@
+/* ============================================================
+   DanyCars — HERO на главной странице (index.html). Отдельный файл.
+   Подключать в <head> ПОСЛЕ css/style.css (и после danycars-home-mobile.css).
+
+   1) «jakie auto» — выделено жёлтым (как в логотипе, #ffc107).
+   2) Затемнение фото сильнее СЛЕВА и по правому краю (градиент) — десктоп.
+   3) Текст поднят выше, ближе к логотипу слева — десктоп.
+   Мобильную версию не трогаем (её ведёт danycars-home-mobile.css).
+   ============================================================ */
+
+/* 1) Подсветка «jakie auto» (первый span в заголовке) — на всех размерах */
+.hero-wrap .slider-text h1 span:first-of-type {
+  color: #ffc107;
+}
+
+/* 2) + 3) Только десктоп (≥992px) */
+@media (min-width: 992px) {
+
+  /* Затемнение: очень тёмное слева (под текстом), светлее в центре,
+     и снова слегка темнее у правого края — как на макете. */
+  .hero-wrap .overlay {
+    opacity: 1;
+    background: -webkit-gradient(linear, left top, right top,
+    from(rgba(0, 0, 0, 0.90)),
+    color-stop(20%, rgba(0, 0, 0, 0.74)),
+    color-stop(42%, rgba(0, 0, 0, 0.42)),
+    color-stop(60%, rgba(0, 0, 0, 0.20)),
+    color-stop(80%, rgba(0, 0, 0, 0.24)),
+    to(rgba(0, 0, 0, 0.50)));
+    background: -webkit-linear-gradient(left,
+    rgba(0, 0, 0, 0.96) 0%,
+    rgba(0, 0, 0, 0.88) 22%,
+    rgba(0, 0, 0, 0.58) 44%,
+    rgba(0, 0, 0, 0.34) 62%,
+    rgba(0, 0, 0, 0.42) 82%,
+    rgba(0, 0, 0, 0.66) 100%);
+    background: linear-gradient(to right,
+    rgba(0, 0, 0, 0.96) 0%,
+    rgba(0, 0, 0, 0.88) 22%,
+    rgba(0, 0, 0, 0.58) 44%,
+    rgba(0, 0, 0, 0.34) 62%,
+    rgba(0, 0, 0, 0.42) 82%,
+    rgba(0, 0, 0, 0.66) 100%);
+  }
+
+  /* Текст выше — ближе к логотипу (сверху), а не по центру/низу */
+  .hero-wrap .slider-text {
+    -webkit-box-align: start !important;
+    -ms-flex-align: start !important;
+    align-items: flex-start !important;
+    padding-top: 128px;
+  }
+  .hero-wrap .slider-text .col-lg-6 {
+    -webkit-box-align: start !important;
+    -ms-flex-align: start !important;
+    align-items: flex-start !important;
+  }
+}
+
+/* ============================================================
+   ПРАВКА ПОД МАКЕТ (сравнение с текущим):
+   4) Шрифт заголовка — ЖИРНЫЙ (в style.css было font-weight:200 — тонкий).
+   5) Кнопка play — ЖЁЛТАЯ с тёмной стрелкой (в style.css была оранжевая #fc983c).
+   ============================================================ */
+
+/* 4) Заголовок hero — жирное начертание Poppins, плотнее строки (все размеры) */
+.hero-wrap .slider-text h1 {
+  font-family: "Poppins", Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.03;
+  letter-spacing: -0.5px;
+}
+
+/* Десктоп — крупнее, как на макете */
+@media (min-width: 992px) {
+  .hero-wrap .slider-text h1 {
+    font-size: 64px;
+  }
+}
+
+/* 5) Кнопка «play» — жёлтый круг + тёмная стрелка */
+.hero-wrap .slider-text .icon-wrap .icon {
+  background: #ffc107 !important;
+}
+.hero-wrap .slider-text .icon-wrap .icon span {
+  color: #1c1c1c !important;
+}

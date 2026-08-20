@@ -1,0 +1,112 @@
+/* ============================================================
+   DanyCars — точечные фиксы ТОЛЬКО для главной страницы (index.html).
+   Подключать в <head> ПОСЛЕ style.css (и вообще последним из CSS).
+
+   Назначение: нейтрализовать пару правил из общего style.css, которые
+   ломают НОВУЮ мобильную раскладку hero на главной, — но НЕ править
+   сам style.css (чтобы не задеть другие страницы сайта).
+
+   В style.css на мобильном (@media max-width:767.98px) стоят:
+     .hero-wrap .slider-text { align-items: flex-end }  — прижимал текст вниз
+     .hero-wrap .text        { margin-bottom: 250px }    — давал огромную пустоту
+   Ниже мы их перебиваем более специфичным селектором + !important.
+   ============================================================ */
+
+@media (max-width: 767.98px) {
+  /* Сброс прижима текста вниз (в style.css был flex-end) */
+  .hero-wrap .container .slider-text {
+    -webkit-box-align: start !important;
+    -ms-flex-align: start !important;
+    align-items: flex-start !important;
+    -ms-flex-line-pack: start !important;
+    align-content: flex-start !important;
+  }
+
+  /* Сброс нижнего отступа-«пустоты» в 250px */
+  .hero-wrap .container .slider-text .text {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* ─── Вписывание всей секции в один экран телефона ───
+     Делаем hero-wrap flex-колонкой; overlay вне потока (absolute),
+     а .container растягивается на всё оставшееся место через flex:1.
+     Контент идёт КОМПАКТНОЙ группой сверху (flex-start), без больших
+     промежутков, а рейтинг приподнят от самого низа экрана. */
+  .hero-wrap {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .hero-wrap .container {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 0;
+    height: auto;
+    width: 100%;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    padding-bottom: 34px;   /* приподнимает рейтинг от самого низа экрана */
+  }
+  /* Текстовый блок — по контенту, сверху, компактно */
+  .hero-wrap .container .slider-text {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  /* Карточка рейтинга — сразу под бейджами с умеренным отступом,
+     НЕ прижата к самому низу (auto убран, задан фикс-margin) */
+  .hero-wrap .container .hero-rating-card {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    margin-top: 18px !important;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════
+   iPad mini / iPad Air (768–991.98px): плавающая карточка рейтинга
+   наезжает на текст. Принудительно ставим её В ПОТОК под контент,
+   во всю ширину. Селектор усилен (.hero-wrap .container ...) +
+   !important, чтобы гарантированно перебить position:absolute.
+   iPad Pro (≥992px) НЕ затронут.
+   ════════════════════════════════════════════════════════════ */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* Бейджи и рейтинг — одинаковая ширина, выровнены влево, чтобы
+     правый край рейтинга совпадал с бейджами и не заходил на парня */
+  .hero-wrap .container .hero-badges {
+    width: 100% !important;
+    max-width: 420px !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+  .hero-wrap .container .hero-rating-card {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    bottom: auto !important;
+    -webkit-transform: none !important;
+    transform: none !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 420px !important;
+    margin: 18px auto 0 0 !important;   /* влево, как бейджи */
+    padding: 14px 18px !important;
+    z-index: auto !important;
+  }
+}

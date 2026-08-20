@@ -134,7 +134,7 @@
   /* Активный пункт — оранжевый (как на сайте), тоже не жирный */
   #ftco-navbar #ftco-nav.show .nav-item.active .nav-link,
   #ftco-navbar #ftco-nav.collapsing .nav-item.active .nav-link {
-    color: #F96D00 !important;
+    color: #ffc107 !important;
     font-weight: 400;
   }
 

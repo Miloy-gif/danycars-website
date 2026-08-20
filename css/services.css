@@ -88,7 +88,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: #fc983c;
+  background: #ffc107;
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 0.55s ease;
@@ -130,8 +130,8 @@
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  border: 1.5px solid #f3d9bd;
-  color: #fc983c;
+  border: 1.5px solid #f3e3a6;
+  color: #ffc107;
   font-size: 15px;
   font-weight: 700;
   display: flex;
@@ -221,7 +221,7 @@
 /* --- Заголовок секции --- */
 .pricing-head { margin-bottom: 3.2em; }
 .pricing-section .subheading {
-  display: inline-block; color: #fc983c; font-size: 14px; font-weight: 600;
+  display: inline-block; color: #ffc107; font-size: 14px; font-weight: 600;
   letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px;
 }
 .pricing-title { font-size: 40px; line-height: 1.15; font-weight: 700; color: #1f2733; margin: 0 0 14px; }
@@ -246,23 +246,23 @@
 
 .price-icon {
   width: 84px; height: 84px; border-radius: 50%; margin: 0 auto 18px;
-  background: #fdf0e6; display: flex; align-items: center; justify-content: center;
+  background: #fff8e1; display: flex; align-items: center; justify-content: center;
   transition: background-color .25s ease;
 }
-.price-icon svg { width: 40px; height: 40px; color: #fc983c; }
-.price-card:hover .price-icon { background: rgba(252, 152, 60, 0.16); }
+.price-icon svg { width: 40px; height: 40px; color: #ffc107; }
+.price-card:hover .price-icon { background: rgba(255, 193, 7, 0.16); }
 
 .price-badge {
   display: block; width: max-content; max-width: 100%; margin: 0 auto 12px;
-  background: #fc983c; color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .8px;
+  background: #ffc107; color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .8px;
   text-transform: uppercase; padding: 6px 14px; border-radius: 20px; text-align: center;
 }
 
 .price-name { text-align: center; font-size: 23px; font-weight: 800; letter-spacing: 1px; color: #1f2733; margin: 0 0 4px; transition: color .25s ease; }
 .price-sub { text-align: center; color: #6b7280; font-size: 14px; margin: 0 0 16px; transition: color .25s ease; }
 
-.price-amount { text-align: center; color: #fc983c; font-size: 34px; font-weight: 800; margin: 0; }
-.price-amount::after { content: ""; display: block; width: 46px; height: 2px; background: #fc983c; margin: 14px auto 20px; }
+.price-amount { text-align: center; color: #ffc107; font-size: 34px; font-weight: 800; margin: 0; }
+.price-amount::after { content: ""; display: block; width: 46px; height: 2px; background: #ffc107; margin: 14px auto 20px; }
 
 .price-daynote { text-align: center; color: #6b7280; font-size: 13.5px; line-height: 1.5; margin: 0 0 18px; transition: color .25s ease; }
 
@@ -278,8 +278,8 @@
 
 .price-note {
   display: flex; gap: 10px; align-items: flex-start;
-  border: 1px solid #f0c9a3; background: #fff7f0; border-radius: 10px;
-  padding: 12px 14px; margin: 0 0 18px; color: #a2632a; font-size: 13px; line-height: 1.5;
+  border: 1px solid #f3e3a6; background: #fff8e1; border-radius: 10px;
+  padding: 12px 14px; margin: 0 0 18px; color: #8a6d00; font-size: 13px; line-height: 1.5;
   transition: background-color .25s ease, border-color .25s ease, color .25s ease;
 }
 .price-note-ic {
@@ -302,18 +302,18 @@
 .price-card:hover .price-daynote { color: #b7bcc4; }
 .price-card:hover .price-features li { color: #c7ccd3; }
 .price-card:hover .price-features li.price-more { color: #ffffff; }
-.price-card:hover .price-note { background: #20242c; border-color: #3a3f49; color: #e8a463; }
-.price-card:hover .price-btn { background: #fc983c; border-color: #fc983c; color: #ffffff; }
-.price-card:hover .price-btn:hover { background: #f3860f; border-color: #f3860f; }
+.price-card:hover .price-note { background: #20242c; border-color: #3a3f49; color: #ffc107; }
+.price-card:hover .price-btn { background: #ffc107; border-color: #ffc107; color: #ffffff; }
+.price-card:hover .price-btn:hover { background: #e0a800; border-color: #e0a800; }
 
 /* --- Нижний блок доверия --- */
 .pricing-trust { margin-top: 2.5em; padding-top: 3em; border-top: 1px solid #eef0f2; }
 .trust-item { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 22px; }
 .trust-icon {
   flex: 0 0 auto; width: 58px; height: 58px; border-radius: 50%;
-  background: #fdf0e6; display: flex; align-items: center; justify-content: center;
+  background: #fff8e1; display: flex; align-items: center; justify-content: center;
 }
-.trust-icon svg { width: 28px; height: 28px; color: #fc983c; }
+.trust-icon svg { width: 28px; height: 28px; color: #ffc107; }
 .trust-text h4 { font-size: 17px; font-weight: 700; color: #1f2733; margin: 0 0 6px; }
 .trust-text p { color: #6b7280; font-size: 14.5px; line-height: 1.55; margin: 0; }
 
@@ -361,7 +361,7 @@
 /* --- Заголовок секции --- */
 .pricing-head { margin-bottom: 3.2em; }
 .pricing-section .subheading {
-  display: inline-block; color: #fc983c; font-size: 14px; font-weight: 600;
+  display: inline-block; color: #ffc107; font-size: 14px; font-weight: 600;
   letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px;
 }
 .pricing-title { font-size: 40px; line-height: 1.15; font-weight: 700; color: #1f2733; margin: 0 0 14px; }
@@ -386,20 +386,20 @@
 
 .price-icon {
   width: 84px; height: 84px; border-radius: 50%; margin: 0 auto 18px;
-  background: #fdf0e6; display: flex; align-items: center; justify-content: center;
+  background: #fff8e1; display: flex; align-items: center; justify-content: center;
   transition: background-color .25s ease;
 }
-.price-icon svg { width: 40px; height: 40px; color: #fc983c; }
-.price-card:hover .price-icon { background: rgba(252, 152, 60, 0.16); }
+.price-icon svg { width: 40px; height: 40px; color: #ffc107; }
+.price-card:hover .price-icon { background: rgba(255, 193, 7, 0.16); }
 
 /* Бейдж: скрыт на белой карточке, появляется сверху над карточкой только при наведении */
 .price-badge {
   position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
   width: max-content; max-width: calc(100% - 28px); white-space: nowrap;
-  background: #fc983c; color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .8px;
+  background: #ffc107; color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .8px;
   text-transform: uppercase; padding: 7px 16px; border-radius: 20px; text-align: center;
   opacity: 0; visibility: hidden; pointer-events: none;
-  box-shadow: 0 8px 20px rgba(252, 152, 60, 0.5);
+  box-shadow: 0 8px 20px rgba(255, 193, 7, 0.5);
   transition: opacity .25s ease, visibility .25s ease;
 }
 .price-card:hover .price-badge { opacity: 1; visibility: visible; }
@@ -409,8 +409,8 @@
 /* min-height, чтобы подзаголовки в 1 и 2 строки не сдвигали цену — цены на одном уровне */
 .price-sub { text-align: center; color: #6b7280; font-size: 14px; margin: 0 0 16px; min-height: 42px; transition: color .25s ease; }
 
-.price-amount { text-align: center; color: #fc983c; font-size: 34px; font-weight: 800; margin: 0; }
-.price-amount::after { content: ""; display: block; width: 46px; height: 2px; background: #fc983c; margin: 14px auto 20px; }
+.price-amount { text-align: center; color: #ffc107; font-size: 34px; font-weight: 800; margin: 0; }
+.price-amount::after { content: ""; display: block; width: 46px; height: 2px; background: #ffc107; margin: 14px auto 20px; }
 
 .price-daynote { text-align: center; color: #6b7280; font-size: 13.5px; line-height: 1.5; margin: 0 0 18px; transition: color .25s ease; }
 
@@ -426,8 +426,8 @@
 
 .price-note {
   display: flex; gap: 10px; align-items: flex-start;
-  border: 1px solid #f0c9a3; background: #fff7f0; border-radius: 10px;
-  padding: 12px 14px; margin: 0 0 18px; color: #a2632a; font-size: 13px; line-height: 1.5;
+  border: 1px solid #f3e3a6; background: #fff8e1; border-radius: 10px;
+  padding: 12px 14px; margin: 0 0 18px; color: #8a6d00; font-size: 13px; line-height: 1.5;
   transition: background-color .25s ease, border-color .25s ease, color .25s ease;
 }
 .price-note-ic {
@@ -450,18 +450,18 @@
 .price-card:hover .price-daynote { color: #b7bcc4; }
 .price-card:hover .price-features li { color: #c7ccd3; }
 .price-card:hover .price-features li.price-more { color: #ffffff; }
-.price-card:hover .price-note { background: #20242c; border-color: #3a3f49; color: #e8a463; }
-.price-card:hover .price-btn { background: #fc983c; border-color: #fc983c; color: #ffffff; }
-.price-card:hover .price-btn:hover { background: #f3860f; border-color: #f3860f; }
+.price-card:hover .price-note { background: #20242c; border-color: #3a3f49; color: #ffc107; }
+.price-card:hover .price-btn { background: #ffc107; border-color: #ffc107; color: #ffffff; }
+.price-card:hover .price-btn:hover { background: #e0a800; border-color: #e0a800; }
 
 /* --- Нижний блок доверия --- */
 .pricing-trust { margin-top: 2.5em; padding-top: 3em; border-top: 1px solid #eef0f2; }
 .trust-item { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 22px; }
 .trust-icon {
   flex: 0 0 auto; width: 58px; height: 58px; border-radius: 50%;
-  background: #fdf0e6; display: flex; align-items: center; justify-content: center;
+  background: #fff8e1; display: flex; align-items: center; justify-content: center;
 }
-.trust-icon svg { width: 28px; height: 28px; color: #fc983c; }
+.trust-icon svg { width: 28px; height: 28px; color: #ffc107; }
 .trust-text h4 { font-size: 17px; font-weight: 700; color: #1f2733; margin: 0 0 6px; }
 .trust-text p { color: #6b7280; font-size: 14.5px; line-height: 1.55; margin: 0; }
 

@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="css/packages.css">
     <link rel="stylesheet" href="css/danycars-home-mobile.css">
     <link rel="stylesheet" href="css/danycars-home-hero.css">
+    <link rel="stylesheet" href="css/danycars-home-fix.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -58,7 +59,9 @@
                 <div class="text">
                     <h1 class="mb-4">Na pewno wiesz <span>jakie auto</span> <span>kupujesz?</span></h1>
                     <p style="font-size: 18px;">Sprawdzamy samochody przed zakupem, wykonujemy diagnostykę komputerową, ocenę stanu technicznego i pomagamy uniknąć złych decyzji.</p>
-                    <a href="https://vimeo.com/45830194" class="icon-wrap popup-vimeo d-flex align-items-center mt-4">
+
+                    <div class="hero-actions-row">
+                    <a href="https://vimeo.com/45830194" class="icon-wrap popup-vimeo d-flex align-items-center mt-4 hero-play">
                         <div class="icon d-flex align-items-center justify-content-center">
                             <span class="ion-ios-play"></span>
                         </div>
@@ -66,11 +69,60 @@
                             <span>Zobacz, jak działamy</span>
                         </div>
                     </a>
+
+                    <a href="danycars-contact.html#contact-form" class="hero-cta-btn">
+                        <span class="hero-cta-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11"/><rect x="3" y="11" width="18" height="7" rx="2"/><circle cx="7.5" cy="18" r="1.6"/><circle cx="16.5" cy="18" r="1.6"/></svg>
+                        </span>
+                        <span class="hero-cta-label-desktop">Sprawdź samochód</span>
+                        <span class="hero-cta-label-mobile">Zamów teraz</span>
+                        <span class="hero-cta-arrow" aria-hidden="true">&#8594;</span>
+                    </a>
+                    </div>
+
+                    <div class="hero-badges d-flex flex-wrap">
+                        <div class="hero-badge">
+                            <span class="hero-badge-icon hero-badge-icon-desktop">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3Z"/></svg>
+                            </span>
+                            <span class="hero-badge-icon hero-badge-icon-mobile">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11"/><rect x="3" y="11" width="18" height="7" rx="2"/><circle cx="7.5" cy="18" r="1.6"/><circle cx="16.5" cy="18" r="1.6"/></svg>
+                            </span>
+                            <span class="hero-badge-text"><strong>800+</strong>sprawdzonych aut</span>
+                            <span class="hero-badge-label-mobile">800+ aut</span>
+                        </div>
+                        <div class="hero-badge">
+                            <span class="hero-badge-icon hero-badge-icon-desktop">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.7"/></svg>
+                            </span>
+                            <span class="hero-badge-icon hero-badge-icon-mobile">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="12" height="9" rx="1"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="6.5" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg>
+                            </span>
+                            <span class="hero-badge-text"><strong>Dojazd</strong>we Wrocławiu GRATIS</span>
+                            <span class="hero-badge-label-mobile">Dojazd GRATIS</span>
+                        </div>
+                        <div class="hero-badge">
+                            <span class="hero-badge-icon hero-badge-icon-desktop">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 5.5L20 8l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5L12 2Z"/></svg>
+                            </span>
+                            <span class="hero-badge-icon hero-badge-icon-mobile">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.7"/></svg>
+                            </span>
+                            <span class="hero-badge-text"><strong>Cała Polska</strong>dojazd do klienta</span>
+                            <span class="hero-badge-label-mobile">Cała Polska</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-2 col"></div>
             <div class="col-lg-4 col-md-6 mt-0 mt-md-5 d-flex">
             </div>
+        </div>
+
+        <div class="hero-rating-card">
+            <p class="hero-rating-score">4.9 <span class="hero-rating-stars">★★★★★</span></p>
+            <p class="hero-rating-desc">800+ sprawdzonych samochodów</p>
+            <p class="hero-rating-loc">Wrocław &bull; cała Polska</p>
         </div>
     </div>
 </div>
@@ -231,7 +283,7 @@
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                         <li class="ftco-animate"><a href="https://www.instagram.com/danycars.pl?igsh=MTdrOTAxdDE5Z2l6Zg%3D%3D&utm_source=qr" target="_blank" rel="noopener"><span class="icon-instagram"></span></a></li>
                         <li class="ftco-animate"><a href="#" target="_blank" rel="noopener"><span class="icon-whatsapp"></span></a></li>
-                        <li class="ftco-animate"><a href="https://www.facebook.com/avtopodborDanilSobol?locale=pl_PL" target="_blank" rel="noopener"><span class="icon-facebook"></span></a></li>
+                        <li class="ftco-animate"><a href="https://www.facebook.com/profile.php?id=100067298748307&locale=pl_PL" target="_blank" rel="noopener"><span class="icon-facebook"></span></a></li>
                         <li class="ftco-animate"><a href="https://www.tiktok.com/@danycars_pl" target="_blank" rel="noopener" aria-label="TikTok"><span class="icon-tiktok" style="display:inline-block;width:22px;height:26px;margin-top:-2px;"><svg width="22" height="26" viewBox="0 0 448 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg></span></a></li>
                     </ul>
                 </div>
@@ -282,7 +334,7 @@
 
 
 <!-- loader -->
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#ffc107"/></svg></div>
 
 
 <script src="js/jquery.min.js"></script>

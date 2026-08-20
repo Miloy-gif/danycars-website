@@ -54,7 +54,7 @@
 .why-choose .container { position: relative; }
 .why-choose .wc-intro { position: relative; margin-bottom: 3.2em; }
 .why-choose .subheading {
-  display: block; color: #fc983c; font-size: 14px; font-weight: 600;
+  display: block; color: #ffc107; font-size: 14px; font-weight: 600;
   letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px;
 }
 .why-choose .wc-title {
@@ -71,7 +71,7 @@
 
 .why-choose .wc-grid { margin-top: .5em; }
 .why-choose .wc-item { padding: 20px 26px 24px; }
-.why-choose .wc-icon { width: 54px; height: 54px; margin-bottom: 16px; color: #fc983c; }
+.why-choose .wc-icon { width: 54px; height: 54px; margin-bottom: 16px; color: #ffc107; }
 .why-choose .wc-icon svg { width: 100%; height: 100%; display: block; }
 .why-choose .wc-item h3 { font-size: 18px; font-weight: 700; color: #1f2733; line-height: 1.3; margin: 0 0 10px; }
 .why-choose .wc-item p { color: #6b7280; font-size: 15px; line-height: 1.65; margin: 0; }
@@ -136,7 +136,7 @@
 .why-choose .container { position: relative; }
 .why-choose .wc-intro { position: relative; margin-bottom: 3.2em; }
 .why-choose .subheading {
-  display: block; color: #fc983c; font-size: 14px; font-weight: 600;
+  display: block; color: #ffc107; font-size: 14px; font-weight: 600;
   letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px;
 }
 .why-choose .wc-title {
@@ -153,7 +153,7 @@
 
 .why-choose .wc-grid { margin-top: .5em; }
 .why-choose .wc-item { padding: 20px 26px 24px; }
-.why-choose .wc-icon { width: 54px; height: 54px; margin-bottom: 16px; color: #fc983c; }
+.why-choose .wc-icon { width: 54px; height: 54px; margin-bottom: 16px; color: #ffc107; }
 .why-choose .wc-icon svg { width: 100%; height: 100%; display: block; }
 .why-choose .wc-item h3 { font-size: 18px; font-weight: 700; color: #1f2733; line-height: 1.3; margin: 0 0 10px; }
 .why-choose .wc-item p { color: #6b7280; font-size: 15px; line-height: 1.65; margin: 0; }
@@ -234,7 +234,7 @@
 
 .about-me-section .am-subheading {
   display: block;
-  color: #F96D00;
+  color: #ffc107;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -255,14 +255,14 @@
   color: #1f2733;
   margin: 0 0 14px;
 }
-.about-me-section .am-subtitle .am-accent { color: #F96D00; }
+.about-me-section .am-subtitle .am-accent { color: #ffc107; }
 
 .about-me-section .am-divider {
   display: block;
   width: 48px;
   height: 3px;
   border-radius: 2px;
-  background: #F96D00;
+  background: #ffc107;
   margin: 0 0 16px;
 }
 
@@ -274,7 +274,7 @@
 }
 .about-me-section .am-body p:last-child { margin-bottom: 0; }
 .about-me-section .am-body strong { color: #1f2733; font-weight: 700; }
-.about-me-section .am-brand { color: #F96D00; font-weight: 700; }
+.about-me-section .am-brand { color: #ffc107; font-weight: 700; }
 
 /* Блок статистики */
 .about-me-section .am-stats {
@@ -297,7 +297,7 @@
   display: block;
   width: 30px;
   height: 30px;
-  color: #F96D00;
+  color: #ffc107;
   margin-bottom: 10px;
 }
 .about-me-section .am-stat-icon svg { width: 100%; height: 100%; display: block; }
@@ -345,7 +345,7 @@
   font-family: Georgia, "Times New Roman", serif;
   font-size: 40px;
   line-height: 1;
-  color: #F96D00;
+  color: #ffc107;
 }
 .about-me-section .am-quote p {
   margin: 0;
@@ -357,7 +357,7 @@
 .about-me-section .am-sign {
   font-family: "Segoe Script", "Brush Script MT", "Snell Roundhand", cursive;
   font-size: 28px;
-  color: #F96D00;
+  color: #ffc107;
   line-height: 1;
   white-space: nowrap;
 }
@@ -378,22 +378,71 @@
   height: 100%;
   min-height: min(560px, 62dvh);
   object-fit: cover;
+  object-position: center bottom; /* при обрезке жертвуем небом сверху, а не ногами снизу */
 }
 
-/* ===== Только десктоп (≥992px): чуть плотнее текст и отступы, чтобы секция ближе помещалась в экран без скролла ===== */
+/* ===== Только десктоп (≥992px): секция «O mnie» ровно на ОДИН экран =====
+   Высота секции = высота экрана (100dvh). Контент по вертикали центрируется.
+   Фото заполняет всю высоту правой колонки (заподлицо с текстовым блоком
+   слева) — без прокрутки вниз или вверх. */
 @media (min-width: 992px) {
-  .ftco-section.about-me-section { padding-top: 5.5em; }
-  .about-me-section { padding-bottom: 2em; }
-  .about-me-section .am-title { font-size: 30px; margin-bottom: 10px; }
-  .about-me-section .am-subtitle { font-size: 15px; margin-bottom: 12px; }
-  .about-me-section .am-divider { margin-bottom: 12px; }
-  .about-me-section .am-body p { font-size: 13.5px; line-height: 1.5; margin-bottom: 10px; }
+  .ftco-section.about-me-section {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 600px;              /* страховка на очень низких окнах браузера */
+    padding: 92px 0 26px;          /* сверху — место под чёрную шапку */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;           /* контент по центру экрана по вертикали */
+    overflow: hidden;              /* ничего не выходит за пределы экрана */
+  }
+  .about-me-section > .container { width: 100%; }
+
+  /* Текст — плотнее, чтобы левая колонка укладывалась по высоте */
+  .about-me-section .am-text-col { padding-right: 3em; }
+  .about-me-section .am-title { font-size: 30px; margin-bottom: 8px; }
+  .about-me-section .am-subheading { margin-bottom: 8px; }
+  .about-me-section .am-subtitle { font-size: 15px; margin-bottom: 10px; }
+  .about-me-section .am-divider { margin-bottom: 10px; }
+  .about-me-section .am-body p { font-size: 13.5px; line-height: 1.5; margin-bottom: 9px; }
   .about-me-section .am-stats { margin: 16px 0 16px; }
-  .about-me-section .am-quote { padding: 14px 20px 13px 48px; }
+  .about-me-section .am-quote { padding: 13px 20px 12px 48px; }
   .about-me-section .am-quote p { font-size: 13.5px; }
   .about-me-section .am-quote-mark { font-size: 34px; top: 8px; left: 18px; }
   .about-me-section .am-sign { font-size: 24px; }
-  .about-me-section .am-photo img { min-height: min(500px, 56dvh); }
+
+  /* Фото — заподлицо с текстовым блоком: верх фото на уровне "O MNIE",
+     низ фото на уровне низа карточки с цитатой (без отступов сверху/снизу).
+     Абсолютное позиционирование внутри уже растянутой (align-items-stretch)
+     колонки — надёжный способ без "прыжков" высоты и без раздувания секции. */
+  .about-me-section .am-photo-col {
+    position: relative;
+    display: block;
+  }
+  .about-me-section .am-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+  .about-me-section .am-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    max-height: none;
+    -o-object-fit: cover;
+    object-fit: cover;
+    margin: 0;
+  }
+
   .ftco-section.about-us-section { padding-top: 2.5em; }
   .why-choose .wc-title { font-size: 34px; }
 }
@@ -437,7 +486,8 @@
   .about-me-section .am-quote--mobile { display: flex; margin-top: 22px; }
 }
 
-/* Доп. отступ между текстом и иконками статистики — только планшет и десктоп (≥768px), мобильная версия не тронута */
-@media (min-width: 768px) {
+/* Доп. отступ между текстом и иконками статистики — ТОЛЬКО планшет (768–991px),
+   мобильная версия не тронута; на десктопе секция помещается в один экран (см. блок ≥992px). */
+@media (min-width: 768px) and (max-width: 991.98px) {
   .about-me-section .am-stats { margin-top: 72px; }
 }

@@ -32,8 +32,8 @@
   width: 56px;
   height: 56px;
   border-radius: 14px;
-  background: #fdf1e6;
-  color: #fc983c;
+  background: #fff8e1;
+  color: #ffc107;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,8 +65,8 @@
   align-items: center;
   gap: 10px;
   background: #fff;
-  border: 1.5px solid #fc983c;
-  color: #fc983c;
+  border: 1.5px solid #ffc107;
+  color: #ffc107;
   font-weight: 700;
   font-size: 15px;
   padding: 12px 22px;
@@ -82,7 +82,7 @@
 
 .faq-phone-btn:hover,
 .faq-phone-btn:focus {
-  background: #fc983c;
+  background: #ffc107;
   color: #fff;
   text-decoration: none;
 }
@@ -128,7 +128,7 @@
 }
 
 .faq-accordion-item.is-open .faq-question {
-  background: #fff8ef;
+  background: #fff8e1;
 }
 
 .faq-number {
@@ -136,8 +136,8 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1.5px solid #f3d9bd;
-  color: #fc983c;
+  border: 1.5px solid #f3e3a6;
+  color: #ffc107;
   font-size: 14px;
   font-weight: 700;
   display: flex;
@@ -165,7 +165,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  background: #fc983c;
+  background: #ffc107;
   transition: transform 0.25s ease;
 }
 
@@ -219,7 +219,7 @@
   flex: 1 1 40px;
   min-width: 24px;
   height: 0;
-  border-top: 2px dashed #f3d9bd;
+  border-top: 2px dashed #f3e3a6;
   margin: 0 10px;
   align-self: center;
 }
@@ -240,13 +240,13 @@
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background-image: linear-gradient(135deg, #fc983c, #f96d00);
+  background-image: linear-gradient(135deg, #ffc107, #ffc107);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0px 8px 16px -6px rgba(252, 152, 60, 0.55);
+  box-shadow: 0px 8px 16px -6px rgba(255, 193, 7, 0.55);
   transition: transform 0.3s ease;
 }
 

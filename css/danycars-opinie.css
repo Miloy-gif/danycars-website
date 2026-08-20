@@ -116,12 +116,12 @@
 /* Изначально ВСЕ карточки белые. Подсветка ТОЛЬКО при наведении. */
 .testimony-section .review-card:hover,
 .testimony-section .review-card:focus {
-  background: #fdf6ee;
-  border-color: #f6a94a;
+  background: #fff8e1;
+  border-color: #ffc107;
   color: #333333;
   text-decoration: none;
-  -webkit-box-shadow: 0 20px 44px -22px rgba(249, 109, 0, 0.30);
-  box-shadow: 0 20px 44px -22px rgba(249, 109, 0, 0.30);
+  -webkit-box-shadow: 0 20px 44px -22px rgba(255, 193, 7, 0.30);
+  box-shadow: 0 20px 44px -22px rgba(255, 193, 7, 0.30);
   -webkit-transform: translateY(-4px);
   transform: translateY(-4px);
 }
@@ -145,7 +145,7 @@
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 30px;
   line-height: 0.7;
-  color: #f6a800;
+  color: #ffc107;
   margin-top: -1px;
 }
 
@@ -163,7 +163,7 @@
   margin-bottom: 16px;
 }
 .testimony-section .review-stars {
-  color: #f6a800;
+  color: #ffc107;
   font-size: 15px;
   letter-spacing: 2px;
   line-height: 1;
@@ -205,12 +205,12 @@
   gap: 8px;
   padding: 8px 14px;
   background: #ffffff;
-  border: 1.5px solid #f6a94a;
+  border: 1.5px solid #ffc107;
   border-radius: 11px;
   font-weight: 600;
   font-size: 14px;
   line-height: 1;
-  color: #f96d00;
+  color: #ffc107;
   white-space: nowrap;
   z-index: 6;
   opacity: 0;
@@ -231,8 +231,8 @@
   width: 12px;
   height: 12px;
   background: #ffffff;
-  border-right: 1.5px solid #f6a94a;
-  border-bottom: 1.5px solid #f6a94a;
+  border-right: 1.5px solid #ffc107;
+  border-bottom: 1.5px solid #ffc107;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
@@ -288,8 +288,8 @@
 /* По умолчанию ОБЕ стрелки белые (с оранжевой стрелкой) */
 .testimony-section .review-nav__btn {
   background: #ffffff;
-  border: 1.5px solid #f3d3b3;
-  color: #F96D00;
+  border: 1.5px solid #f3e3a6;
+  color: #ffc107;
   -webkit-box-shadow: 0 10px 24px -16px rgba(0, 0, 0, 0.3);
   box-shadow: 0 10px 24px -16px rgba(0, 0, 0, 0.3);
 }
@@ -309,21 +309,21 @@
 /* Стрелка, которой листают (.is-active) — заливается оранжевым, стрелка белеет,
    мягкое свечение. Форма и положение НЕ меняются. */
 .testimony-section .review-nav__btn.is-active {
-  background: #F96D00;
-  border-color: #F96D00;
+  background: #ffc107;
+  border-color: #ffc107;
   color: #ffffff;
-  -webkit-box-shadow: 0 0 0 4px rgba(249, 109, 0, 0.18), 0 8px 22px -8px rgba(249, 109, 0, 0.55);
-  box-shadow: 0 0 0 4px rgba(249, 109, 0, 0.18), 0 8px 22px -8px rgba(249, 109, 0, 0.55);
+  -webkit-box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.18), 0 8px 22px -8px rgba(255, 193, 7, 0.55);
+  box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.18), 0 8px 22px -8px rgba(255, 193, 7, 0.55);
 }
 /* Наведение подсвечиваем ТОЛЬКО на устройствах с курсором (не на тач-экранах —
    иначе на мобильном стрелка «залипала» бы оранжевой уже при загрузке). */
 @media (hover: hover) {
   .testimony-section .review-nav__btn:hover {
-    background: #F96D00;
-    border-color: #F96D00;
+    background: #ffc107;
+    border-color: #ffc107;
     color: #ffffff;
-    -webkit-box-shadow: 0 0 0 4px rgba(249, 109, 0, 0.18), 0 8px 22px -8px rgba(249, 109, 0, 0.55);
-    box-shadow: 0 0 0 4px rgba(249, 109, 0, 0.18), 0 8px 22px -8px rgba(249, 109, 0, 0.55);
+    -webkit-box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.18), 0 8px 22px -8px rgba(255, 193, 7, 0.55);
+    box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.18), 0 8px 22px -8px rgba(255, 193, 7, 0.55);
   }
 }
 

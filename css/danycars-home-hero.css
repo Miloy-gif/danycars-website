@@ -241,6 +241,22 @@ body { overflow-x: hidden; }
   color: rgba(255, 255, 255, 0.55);
 }
 
+/* Карточка лежит внутри .slider-text, а в style.css есть правило
+   .slider-text p { color:#fff; line-height:1.5 } — оно «сильнее» одиночного
+   класса и перекрашивало строки карточки в чистый белый.
+   Возвращаем свои цвета более специфичным селектором. */
+.hero-wrap .hero-rating-card .hero-rating-score,
+.hero-wrap .hero-rating-card .hero-rating-desc,
+.hero-wrap .hero-rating-card .hero-rating-loc {
+  line-height: 1.8;   /* как было, когда карточка лежала вне .slider-text */
+}
+.hero-wrap .hero-rating-card .hero-rating-desc {
+  color: rgba(255, 255, 255, 0.85);
+}
+.hero-wrap .hero-rating-card .hero-rating-loc {
+  color: rgba(255, 255, 255, 0.55);
+}
+
 /* Десктоп/планшет — плавающая карточка в правом верхнем углу */
 @media (min-width: 768px) {
   .hero-wrap .container {
@@ -429,6 +445,46 @@ body { overflow-x: hidden; }
   .hero-rating-stars { font-size: 14px; }
   .hero-rating-desc { margin: 7px 0 2px; font-size: 12px; }
   .hero-rating-loc { font-size: 11px; }
+
+  /* ВАЖНО: карточка рейтинга теперь лежит ВНУТРИ .text, поэтому на неё
+     начинает действовать правило .hero-wrap .text p { font-size:19px !important }
+     (оно выше в этом же блоке). Возвращаем карточке её собственные размеры
+     более «сильным» селектором — иначе текст в карточке раздувается. */
+  .hero-wrap .text .hero-rating-card .hero-rating-score {
+    font-size: 18px !important;
+    line-height: 1.8 !important;
+    margin: 0 !important;
+  }
+  .hero-wrap .text .hero-rating-card .hero-rating-desc {
+    font-size: 12px !important;
+    line-height: 1.8 !important;
+    margin: 7px 0 2px !important;
+  }
+  .hero-wrap .text .hero-rating-card .hero-rating-loc {
+    font-size: 11px !important;
+    line-height: 1.8 !important;
+    margin: 0 !important;
+  }
+}
+
+/* Та же защита для планшета (768–991.98px): там .hero-wrap .text p
+   тоже может перебивать типографику карточки. */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .hero-wrap .text .hero-rating-card .hero-rating-score {
+    font-size: 22px !important;
+    line-height: 1.8 !important;
+    margin: 0 !important;
+  }
+  .hero-wrap .text .hero-rating-card .hero-rating-desc {
+    font-size: 12.5px !important;
+    line-height: 1.8 !important;
+    margin: 10px 0 2px !important;
+  }
+  .hero-wrap .text .hero-rating-card .hero-rating-loc {
+    font-size: 11.5px !important;
+    line-height: 1.8 !important;
+    margin: 0 !important;
+  }
 }
 
 /* Узкие телефоны (≤375px) — чуть меньше шрифты, чтобы бейджи влезли в ряд */
@@ -453,6 +509,25 @@ body { overflow-x: hidden; }
   .hero-wrap .hero-cta-btn { margin-top: 14px !important; padding: 13px 18px; }
   .hero-wrap .hero-badges { margin-top: 12px !important; padding: 11px 6px; }
   .hero-rating-card { margin-top: 12px !important; padding: 11px 14px; }
+
+  /* Абзац hero на низких экранах обрезается через -webkit-box + line-clamp.
+     Карточка рейтинга теперь лежит внутри .text, поэтому это правило цепляло
+     и её строки (текст обрезался, «4.9 ★★★★★» разъезжались).
+     Возвращаем карточке нормальное отображение. */
+  .hero-wrap .text .hero-rating-card p {
+    display: block !important;
+    -webkit-line-clamp: none !important;
+    -webkit-box-orient: horizontal !important;
+    overflow: visible !important;
+  }
+  .hero-wrap .text .hero-rating-card .hero-rating-score {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-line-clamp: none !important;
+    overflow: visible !important;
+  }
 }
 
 /* Совсем невысокие (≤640px) — максимально плотно */
@@ -467,4 +542,220 @@ body { overflow-x: hidden; }
   .hero-badge-icon-mobile svg { width: 20px; height: 20px; }
   .hero-rating-card { margin-top: 9px !important; padding: 9px 13px; }
   .hero-rating-desc { margin: 5px 0 1px; }
+  /* тот же отступ, но селектором посильнее — перебиваем мобильный блок выше */
+  .hero-wrap .text .hero-rating-card .hero-rating-desc {
+    margin: 5px 0 1px !important;
+  }
+}
+/* ════════════════════════════════════════════════════════════
+   ПРАВКА ПОД МАКЕТ — ТОЛЬКО ДЕСКТОП (≥992px).
+   Мобильную (≤767px) и планшетную (768–991px) раскладку НЕ трогаем.
+
+   Что меняется относительно текущей вёрстки:
+   1) Кнопка «Sprawdź samochód» и play «Zobacz, jak działamy» —
+      в ОДНУ строку: кнопка слева, кружок play справа от неё.
+   2) Бейджи — во всю ширину текстовой колонки, крупнее шрифт,
+      три равные ячейки с разделителями.
+   3) Карточка рейтинга — БОЛЬШЕ НЕ плавает справа вверху:
+      стоит в потоке под бейджами, той же ширины, содержимое
+      в одну строку: «4.9 ★★★★★» + описание справа.
+   4) Мелочи: отступ сверху у текста, размер абзаца.
+   ════════════════════════════════════════════════════════════ */
+@media (min-width: 992px) {
+
+  /* --- 4) текст чуть выше, как на макете --- */
+  .hero-wrap .slider-text {
+    padding-top: 112px;
+  }
+  /* Блок .text держим строго по ширине колонки: бейджи и рейтинг
+     получают ровно её ширину, а ряд кнопок может быть чуть шире */
+  .hero-wrap .slider-text .text {
+    width: 100%;
+    min-width: 0;
+  }
+  /* ВАЖНО: только ПРЯМОЙ дочерний абзац (лид под заголовком).
+     Без «>» это правило цепляло бы и строки карточки рейтинга. */
+  .hero-wrap .slider-text .text > p {
+    font-size: 19px !important;
+    line-height: 1.62;
+    max-width: 100%;
+    margin-bottom: 0;
+  }
+
+  /* --- 1) Кнопка + play в одну строку --- */
+  .hero-wrap .hero-actions-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    max-width: none;
+    margin-top: 30px;
+  }
+  .hero-wrap .hero-actions-row .hero-cta-btn {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+    margin-top: 0 !important;
+    margin-right: 26px;          /* зазор до кружка play */
+    gap: 10px;
+    font-size: 14px;
+    padding: 17px 22px;
+    border-radius: 8px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+  }
+  .hero-wrap .hero-actions-row .hero-play {
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2;
+    margin-top: 0 !important;    /* гасим bootstrap-ский .mt-4 */
+  }
+  .hero-wrap .hero-cta-arrow {
+    margin-left: 6px;
+    font-size: 16px;
+  }
+
+  /* --- 2) Бейджи: во всю ширину колонки, три равные ячейки --- */
+  .hero-wrap .hero-badges {
+    /* .hero-badges в разметке имеет bootstrap-класс .flex-wrap (!important),
+       поэтому перенос гасим тоже через !important */
+    -ms-flex-wrap: nowrap !important;
+    flex-wrap: nowrap !important;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 22px;
+    padding: 12px 20px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  .hero-wrap .hero-badge {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    gap: 10px;
+    padding: 2px 13px;
+  }
+  .hero-wrap .hero-badge:first-child {
+    padding-left: 0;
+  }
+  .hero-wrap .hero-badge:last-child {
+    padding-right: 0;
+  }
+  .hero-wrap .hero-badge-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  .hero-wrap .hero-badge-text {
+    font-size: 12.5px;
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.72);
+  }
+  .hero-wrap .hero-badge-text strong {
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+
+  /* --- 3) Карточка рейтинга: в потоке, под бейджами, горизонтально --- */
+  .hero-wrap .hero-rating-card {
+    position: static;
+    top: auto;
+    right: auto;
+    left: auto;
+    bottom: auto;
+    width: 100%;
+    min-width: 0;
+    margin-top: 12px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 15px 24px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+  .hero-wrap .hero-rating-card .hero-rating-score {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    gap: 12px;
+    margin-right: 30px;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .hero-wrap .hero-rating-card .hero-rating-stars {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+  .hero-wrap .hero-rating-card .hero-rating-meta {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .hero-wrap .hero-rating-card .hero-rating-desc {
+    margin: 0 0 4px;
+    font-size: 16.5px;
+    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.92);
+  }
+  .hero-wrap .hero-rating-card .hero-rating-loc {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+/* Широкие экраны (≥1200px) — типографика бейджей и кнопки как на макете */
+@media (min-width: 1200px) {
+  .hero-wrap .hero-actions-row .hero-cta-btn {
+    font-size: 15px;
+    padding: 18px 26px;
+    margin-right: 30px;
+  }
+  .hero-wrap .hero-badge {
+    gap: 12px;
+    padding: 2px 18px;
+  }
+  .hero-wrap .hero-badge-text {
+    font-size: 13.5px;
+  }
+  .hero-wrap .hero-badge-text strong {
+    font-size: 15px;
+  }
+}
+
+/* Ноутбуки 992–1199px: колонка hero чуть шире стандартных col-lg-6,
+   иначе бейджи и строка рейтинга не помещаются в одну строку.
+   Правые колонки-распорки пустые (фон — картинка), поэтому это безопасно. */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .hero-wrap .slider-text > .col-lg-6 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 58%;
+    flex: 0 0 58%;
+    max-width: 58%;
+  }
+  .hero-wrap .slider-text h1 {
+    font-size: 56px;
+  }
+  .hero-wrap .hero-rating-card .hero-rating-desc {
+    font-size: 15.5px;
+  }
 }

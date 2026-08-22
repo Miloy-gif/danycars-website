@@ -67,6 +67,8 @@
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
     width: 100%;
+    -webkit-transform: translateY(18px);
+    transform: translateY(18px);
   }
   /* Карточка рейтинга — сразу под бейджами с умеренным отступом,
      НЕ прижата к самому низу (auto убран, задан фикс-margin) */

@@ -59,6 +59,96 @@
 }
 
 /* =========================================================
+   1a. TELEFON: ochrona przed poziomym przesunięciem strony
+   =========================================================
+   Nie używamy tutaj 100vw dla elementów znajdujących się w
+   kontenerze — na części mobilnych przeglądarek 100vw może być
+   szersze od realnie widocznego obszaru. Wszystkie elementy hero
+   i navbaru liczą szerokość od viewportu i nie tworzą poziomego
+   scrolla. Reguły dotyczą wyłącznie telefonów (do 767.98px).
+   ========================================================= */
+@media (max-width: 767.98px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  #ftco-navbar {
+    padding: 8px 14px !important;
+  }
+
+  #ftco-navbar,
+  #ftco-navbar > .container,
+  .hero-wrap,
+  .hero-wrap > .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+  }
+
+  /* Logo i burger zawsze mieszczą się w jednym wierszu. */
+  #ftco-navbar > .container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  #ftco-navbar .navbar-brand {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: calc(100% - 82px);
+    margin-right: 8px;
+  }
+  #ftco-navbar .navbar-toggler {
+    flex: 0 0 auto;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  /* Usuwamy ujemne marginesy Bootstrapa tylko z wiersza hero. */
+  .hero-wrap .slider-text {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .hero-wrap .slider-text > .col-lg-6,
+  .hero-wrap .slider-text .text,
+  .hero-wrap .slider-text .text > * {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hero-wrap .slider-text .text > p {
+    width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .hero-wrap .hero-actions-row,
+  .hero-wrap .hero-cta-btn,
+  .hero-wrap .hero-badges,
+  .hero-wrap .hero-rating-card {
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  #ftco-navbar #ftco-nav.show,
+  #ftco-navbar #ftco-nav.collapsing {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+}
+
+/* =========================================================
    2. БУРГЕР-МЕНЮ на весь экран (только моб.)
    ========================================================= */
 @media (max-width: 991.98px) {
